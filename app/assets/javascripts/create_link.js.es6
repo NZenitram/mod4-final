@@ -6,43 +6,29 @@ $(document).ready(function(){
   $("#new-link").on('submit', createLink);
 
   $(".hot-read").on('click', '.edit-link', function(){
-    $(".hot-read").append(editForm())
-  })
+    var $this = $(this);
+    var linkId = this.id;
+    $(this.parentElement).append(editForm())
 
-  $("#edit-link").on('submit', sendEdit)
+  $("#edit-link").on('click', function(){
+    var linkId = $('.hot-read .id').text();
+    var title = $('#edit-title').val()
+    var url = $('#edit-url').val()
+    var read = $('.hot-read .read').text();
 
-  $('.hot-read').on('click', '.mark-read', function(){
-    sendToReads()
+    $.ajax({
+      url: 'api/v1/links/' + linkId,
+      method: 'PATCH',
+      data: {id: id,
+             title: title,
+             url: url,
+             read: read}
+      });
+    })
   })
 })
 
-function sendToReads(){
-  var id = $('.hot-read .id').text();
-  var title = $('#edit-title').val()
-  var url = $('#edit-url').val()
-  var read = $('.hot-read .read').text();
 
-  $.post("http://localhost:8080/links",{
-          id: id,
-          title: title,
-          url: url,
-          read: read}
-        )
-}
-
-function sendEdit(){
-  var id = $('.hot-read .id').text();
-  var title = $('#edit-title').val()
-  var url = $('#edit-url').val()
-  var read = $('.hot-read .read').text();
-
-  $.post("api/v1/link", {
-           id: id,
-           title: title,
-           url: url,
-           read: read}
-  )
-}
 
 function editForm(){
 
@@ -66,6 +52,7 @@ function createLink (event){
   $.post("/api/v1/links", link)
    .then( renderLink )
    .fail( displayFailure )
+   location.reload();
  }
 
 function getLinkData() {

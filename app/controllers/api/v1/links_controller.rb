@@ -1,7 +1,9 @@
 class Api::V1::LinksController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
-    @links = Link.where(user_id: current_user.id)
+    @links = Link.hot
+    render json: @links, status: 200
   end
 
   def create

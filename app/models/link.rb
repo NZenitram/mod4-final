@@ -11,4 +11,5 @@ class Link < ApplicationRecord
 
   has_many :reads, dependent: :destroy
   belongs_to :user
+
 end

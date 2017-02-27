@@ -2,15 +2,16 @@ var $newLinkTitle, $newLinkUrl;
 
 $(document).ready(function(){
 
-  $('#links-list').on('click', 'button.mark-read', function(){
+  $('.hot-read').on('click', '.mark-read', function(){
     var $this = $(this);
-    var linkId = $this.parents('.link').data('id');
+    var linkId = this.id;
 
     $.ajax({
-      url: '/api/v1/links/' + linkId,
+      url: 'api/v1/links/' + linkId,
       method: 'PATCH',
       data: {read: true}
     });
+    location.reload();
   })
 
   $("#my-input").on('keyup', function() {
