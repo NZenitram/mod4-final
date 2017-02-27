@@ -5,19 +5,18 @@ $(document).ready(function(){
   $newLinkUrl  = $("#link-url");
   $("#new-link").on('submit', createLink);
 
-  $("#links-list").on('click', '.edit-link', function(){
-    $("#links-list").append(editForm())
+  $(".hot-read").on('click', '.edit-link', function(){
+    $(".hot-read").append(editForm())
 
   $("#edit-link").on('submit', sendEdit)
   })
 })
 
 function sendEdit(){
-  var id = $('.link').attr('data-id');
+  var id = $('.hot-read .id').text();
   var title = $('#edit-title').val()
   var url = $('#edit-url').val()
-  var read = $('.link .link_read').text();
-
+  var read = $('.hot-read .read').text();
   $.post("api/v1/link", {
            id: id,
            title: title,

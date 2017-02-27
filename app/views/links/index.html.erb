@@ -21,7 +21,14 @@
 <ol id="hot-reads">
 <% @hot_links.each do |read| %>
   <li class='hot-read'>
-    <a href="<%= read.url %>"><%= read.url %></a>
+    <a class="id"><%= read.id %></a>
+    <p><a class="title"><%= read.title %></a></p>
+    <p><a class=
+      "url" href="<%= read.url %>"><%= read.url %></a></p>
+    <p><a class="read"> <%= read.read %></a></p>
+    <button class="mark-read">Mark as Read</button>
+    <button class='edit-link'>Edit</button>
+    <button class='delete-link'>Delete</button>
   </li>
 <% end %>
 </ol>
