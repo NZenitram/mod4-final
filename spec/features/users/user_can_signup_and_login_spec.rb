@@ -54,5 +54,17 @@ describe 'when a user visits the root the user can sign up or log in' do
 
       expect(page).to have_content("You have successfully logged out.")
     end
+    it 'can login and is redirected' do
+      user = User.create!(email: "test@test.com", password_digest: BCrypt::Password.create("test"))
+
+      visit '/'
+      fill_in "email", with: user.email
+      fill_in "password", with: "test"
+
+      click_button "Sign In"
+
+      expect(page).to have_content("You have successfully logged in.")
+      expect(page).to have_content("Hot Reads!")
+    end
   end
 end

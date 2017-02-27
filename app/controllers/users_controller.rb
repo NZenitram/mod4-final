@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:success] = "Account for #{user.email} created."
-      redirect_to :root
+      redirect_to links_path
     else
       flash[:error] = "Your password and password confirmation must match."
       redirect_to :root
