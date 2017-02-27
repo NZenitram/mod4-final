@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'when an authenticated user visits the links index' do
+describe 'when an authenticated user visits the links index', :js => :true do
   context 'the user can see submitted links' do
     it 'should see a form to submit a link' do
       user = User.create!(email: "test@test.com", password_digest: BCrypt::Password.create("test"))
