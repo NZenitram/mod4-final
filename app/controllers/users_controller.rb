@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:success] = "Account for #{user.email} created."
       redirect_to :root
     else
-      flash[:notice] = "Please fill out all forms and make sure your passwords match."
+      flash[:error] = "Your password and password confirmation must match."
       redirect_to :root
     end
   end
