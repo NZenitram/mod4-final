@@ -19,7 +19,7 @@ function sendEdit(){
   var read = $('.link .link_read').text();
 
   $.post("api/v1/link", {
-           link_id: id,
+           id: id,
            title: title,
            url: url,
            read: read}

@@ -18,7 +18,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find(params[:link_id])
+    @link = Link.find(params[:id])
     @link.assign_attributes(link_params)
     just_read = @link.read_changed? && @link.read
     if @link.save
@@ -32,6 +32,6 @@ class Api::V1::LinksController < ApplicationController
   private
 
   def link_params
-    params.permit(:link_id, :title, :url, :read)
+    params.permit(:id, :title, :url, :read)
   end
 end
