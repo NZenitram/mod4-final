@@ -7,16 +7,35 @@ $(document).ready(function(){
 
   $(".hot-read").on('click', '.edit-link', function(){
     $(".hot-read").append(editForm())
+  })
 
   $("#edit-link").on('submit', sendEdit)
+
+  $('.hot-read').on('click', '.mark-read', function(){
+    sendToReads()
   })
 })
+
+function sendToReads(){
+  var id = $('.hot-read .id').text();
+  var title = $('#edit-title').val()
+  var url = $('#edit-url').val()
+  var read = $('.hot-read .read').text();
+
+  $.post("http://localhost:8080/links",{
+          id: id,
+          title: title,
+          url: url,
+          read: read}
+        )
+}
 
 function sendEdit(){
   var id = $('.hot-read .id').text();
   var title = $('#edit-title').val()
   var url = $('#edit-url').val()
   var read = $('.hot-read .read').text();
+
   $.post("api/v1/link", {
            id: id,
            title: title,
@@ -88,5 +107,20 @@ function clearLink() {
 }
 
 function displayFailure(failureData){
-  console.log("FAILED attempt to create new Link: " + failureData.responseText);
+  alert("FAILED attempt to create new Link: " + failureData.responseText);
 }
+
+$("#my-input").on('keyup', function() {
+   var filter = this.value.toUpperCase();
+   var search = $('.hot-read')
+   for (i = 0; i < search.length; i++) {
+    td = search[i].getElementsByClassName('url')[0]
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        search[i].style.display = "";
+      } else {
+        search[i].style.display = "none";
+      }
+    }
+  }
+ });
