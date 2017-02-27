@@ -109,18 +109,3 @@ function clearLink() {
 function displayFailure(failureData){
   alert("FAILED attempt to create new Link: " + failureData.responseText);
 }
-
-$("#my-input").on('keyup', function() {
-   var filter = this.value.toUpperCase();
-   var search = $('.hot-read')
-   for (i = 0; i < search.length; i++) {
-    td = search[i].getElementsByClassName('url')[0]
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        search[i].style.display = "";
-      } else {
-        search[i].style.display = "none";
-      }
-    }
-  }
- });
