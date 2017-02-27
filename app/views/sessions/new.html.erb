@@ -4,6 +4,19 @@
 
   Email: <%= text_field_tag :email %>
   Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+  <%= submit_tag "Sign In" %>
+
+<% end %><br />
+
+Or
+
+<h1>Signup!</h1>
+
+<%= form_for @user do |f| %>
+
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Create User" %>
 
 <% end %>
