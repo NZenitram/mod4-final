@@ -10,8 +10,6 @@ $(document).ready(function(){
 function createLink (event){
   event.preventDefault();
 
-  console.log("win")
-
   var link = getLinkData();
 
   $.post("/api/v1/links", link)
@@ -24,6 +22,10 @@ function getLinkData() {
    title: $newLinkTitle.val(),
    url: $newLinkUrl.val()
  }
+}
+
+function getLinks (){
+  $.get()
 }
 
 function renderLink(link){
