@@ -3,9 +3,42 @@ var $newLinkTitle, $newLinkUrl;
 $(document).ready(function(){
   $newLinkTitle = $("#link-title");
   $newLinkUrl  = $("#link-url");
-
   $("#new-link").on('submit', createLink);
+
+  $("#links-list").on('click', '.edit-link', function(){
+    $("#links-list").append(editForm())
+
+  $("#edit-link").on('submit', sendEdit)
+  })
 })
+
+function sendEdit(){
+  var id = $('.link').attr('data-id');
+  var title = $('#edit-title').val()
+  var url = $('#edit-url').val()
+  var read = $('.link .link_read').text();
+
+  $.post("api/v1/link", {
+           link_id: id,
+           title: title,
+           url: url,
+           read: read}
+  )
+}
+
+function editForm(){
+
+  return `<form id="edit-link">
+  <h4>Edit Your Link:</h4>
+    <label>URL:
+      <input id="edit-url">
+    </label>
+    <label>Title:
+      <input id="edit-title">
+    </label>
+    <input type="submit" value="Edit Link">
+  </form>`
+}
 
 function createLink (event){
   event.preventDefault();

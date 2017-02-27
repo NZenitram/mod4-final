@@ -1,13 +1,19 @@
 <%= button_to 'Log Out', logout_path %><br />
-<form id="new-link">
-  <label>URL:
-    <input id="link-url">
-  </label>
-  <label>Title:
-    <input id="link-title">
-  </label>
-  <input type="submit" value="Add Link">
-</form>
+<div id="create">
+  <form id="new-link">
+    <label>URL:
+      <input id="link-url">
+    </label>
+    <label>Title:
+      <input id="link-title">
+    </label>
+    <input type="submit" value="Add Link">
+  </form>
+</div>
+
+<div id="edit">
+
+</div>
 
 <div id="links-list"></div>
 
