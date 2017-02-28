@@ -29,7 +29,7 @@
         <p><a class="url " href="<%= read.url %>"><%= read.url %></a></p>
         <a class="id"><%= read.id %></a>
         <p><a class="title"><%= read.title %></a></p>
-        <p><%= read.read %></p>
+        <p><a class="read"><%= read.read %></a></p>
         <% if read.read == true %>
           <button id="<%= read.id %>" class="mark-read">Mark as Unread</button>
         <% else %>

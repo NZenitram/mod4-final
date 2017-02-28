@@ -12,20 +12,20 @@ $(document).ready(function(){
   });
 
 
-$("#edit-link").on('click', '.press', function(){
-  var linkId = $('.hot-read .id').text();
+$(".hot-read").on('click', '.press', function(){
+
+  var linkId = $(this).parents().children('.id').text();
   var title = $('#edit-title').val()
   var url = $('#edit-url').val()
-  var read = $('.hot-read .read').text();
+  var read = false;
 
-  $.ajax({
-    url: 'api/v1/links/' + linkId,
-    method: 'PATCH',
-    data: {id: id,
-      title: title,
-      url: url,
-      read: read}
-    });
+  $.ajax({ url: '/api/v1/links/' + linkId,
+          method: 'PATCH',
+           data: {id: linkId,
+           title: title,
+           url: url,
+           read: read}
+         });
   })
 })
 
