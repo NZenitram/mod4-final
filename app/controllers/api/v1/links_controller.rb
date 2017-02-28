@@ -7,7 +7,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
-    @link = current_user.links.new link_params
+    @link = current_user.links.new(link_params)
     if @link.save
       render json: @link, status: 201
     else
@@ -20,6 +20,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
+    binding.pry
     @link = Link.find(params[:id])
     @link.assign_attributes(link_params)
     just_read = @link.read_changed? && @link.read

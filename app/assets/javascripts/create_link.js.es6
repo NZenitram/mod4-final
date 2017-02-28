@@ -5,29 +5,29 @@ $(document).ready(function(){
   $newLinkUrl  = $("#link-url");
   $("#new-link").on('submit', createLink);
 
-  $(".hot-read").on('click', '.edit-link', function(){
+  $(".hot-read").on('click', '.edit-link-button', function(){
     var $this = $(this);
     var linkId = this.id;
     $(this.parentElement).append(editForm())
+  });
 
-  $("#edit-link").on('click', function(){
-    var linkId = $('.hot-read .id').text();
-    var title = $('#edit-title').val()
-    var url = $('#edit-url').val()
-    var read = $('.hot-read .read').text();
 
-    $.ajax({
-      url: 'api/v1/links/' + linkId,
-      method: 'PATCH',
-      data: {id: id,
-             title: title,
-             url: url,
-             read: read}
-      });
-    })
+$("#edit-link").on('click', '.press', function(){
+  var linkId = $('.hot-read .id').text();
+  var title = $('#edit-title').val()
+  var url = $('#edit-url').val()
+  var read = $('.hot-read .read').text();
+
+  $.ajax({
+    url: 'api/v1/links/' + linkId,
+    method: 'PATCH',
+    data: {id: id,
+      title: title,
+      url: url,
+      read: read}
+    });
   })
 })
-
 
 
 function editForm(){
@@ -40,7 +40,7 @@ function editForm(){
     <label>Title:
       <input id="edit-title">
     </label>
-    <input type="submit" value="Edit Link">
+    <input class="press" type="submit" value="Edit Link">
   </form>`
 }
 
