@@ -18,30 +18,18 @@
 <h2>Hot Reads!</h2>
 <ol id="hot-reads">
 <% @hot_links.each do |read| %>
-  <% if read == Link.hot.first %>
     <li class='hot-read'>
-        <h4>Top Link!</h4>
+        <p><a class="url " href="<%= read.url %>"><%= read.url %></a></p>
         <a class="id"><%= read.id %></a>
         <p><a class="title"><%= read.title %></a></p>
-        <p><a class=
-          "url" href="<%= read.url %>"><%= read.url %></a></p>
-        <p><a class="read"> <%= read.read %></a></p>
-        <button id="<%= read.id %>" class="mark-read">Mark as Read</button>
+        <p><%= read.read %></p>
+        <% if read.read == true %>
+          <button id="<%= read.id %>" class="mark-read">Mark as Unread</button>
+        <% else %>
+          <button id="<%= read.id %>" class="mark-read">Mark as Read</button>
+        <% end %>
         <button id="<%= read.id %>" class='edit-link'>Edit</button>
         <button class='delete-link'>Delete</button>
     </li>
-    <% else %>
-    <li class='hot-read'>
-        <h4>Hot Read!</h4>
-        <a class="id"><%= read.id %></a>
-        <p><a class="title"><%= read.title %></a></p>
-        <p><a class=
-          "url" href="<%= read.url %>"><%= read.url %></a></p>
-        <p><a class="read"> <%= read.read %></a></p>
-        <button id="<%= read.id %>" class="mark-read">Mark as Read</button>
-        <button id="<%= read.id %>" class='edit-link'>Edit</button>
-        <button class='delete-link'>Delete</button>
-    </li>
-  <% end %>
 <% end %>
 </ol>
