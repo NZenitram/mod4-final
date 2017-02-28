@@ -5,6 +5,22 @@ $(document).ready(function(){
   $('.hot-read').on('click', '.mark-read', function(){
     var $this = $(this);
     var linkId = this.id;
+    
+    if (this.parentElement.children[4].innerText.trim() == "true"){
+      this.parentElement.children[4].innerText = "false"
+      $.ajax({
+        url: 'api/v1/links/' + linkId,
+        method: 'PATCH',
+        data: {read: false}
+      });
+    } else {
+        this.parentElement.children[4].innerText = "true"
+        $.ajax({
+          url: 'api/v1/links/' + linkId,
+          method: 'PATCH',
+          data: {read: true}
+        });
+      }
 
     $.ajax({
       url: 'api/v1/links/' + linkId,
