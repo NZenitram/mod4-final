@@ -45,7 +45,7 @@ $(document).ready(function(){
 
     for (var i = 0; i < li.length; i++) {
       if (li[i].children[3].innerText.trim() == "true") {
-        $(li[i]).parent().children().first().css("text-decoration", "line-through")
+        $(li).parent().children().first().css("text-decoration", "line-through")
       }
     }
   }
