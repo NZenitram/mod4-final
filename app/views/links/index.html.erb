@@ -8,17 +8,24 @@
       <input id="link-title">
     </label>
     <input type="submit" value="Add Link">
-  </form>
-</div>
-<div id="edit">
+  </form><br />
 </div>
 
 <input id="my-input" type="text" placeholder="Seach here">
+
+<br />
+
+
+<button id="show-all-unread" class="filter">Show Unread</button>
+<button id="show-all-read" class="filter">Show Read</button>
+<button id="show-all-links" class="filter">Show All</button>
+
+
 <div id="links-list"></div>
 <h2>Hot Reads!</h2>
 <ol id="hot-reads">
 <% @hot_links.each do |read| %>
-    <li class='hot-read'>
+    <li id="<%= read.read %>" class='hot-read'>
         <p><a class="url " href="<%= read.url %>"><%= read.url %></a></p>
         <a class="id"><%= read.id %></a>
         <p><a class="title"><%= read.title %></a></p>
