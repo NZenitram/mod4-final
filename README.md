@@ -22,7 +22,7 @@ The major __GOTCHA__ here is that phantomjs doesn't recognize es6. So if you wri
 
 1. Clone the repository:
 ```shell
-git clone git@github.com:turingschool-projects/briefcase.git
+git@github.com:NZenitram/mod4-final.git
 ```
 2. Bundle application
 ```shell
@@ -49,11 +49,6 @@ PostgreSQL
 ```
 If you don't have rails (or ruby) installed, this [tutorial](http://docs.railsbridge.org/intro-to-rails/) is a good place to start.
 
-
-## Author
-
-[Nicholas Martinez](https://github.com/NZenitram/mod4-final)
-
 ## API EndPoint
 
 ```shell
@@ -61,3 +56,7 @@ If you don't have rails (or ruby) installed, this [tutorial](http://docs.railsbr
 ```
 
 Returns an object of the Hot Sauce.
+
+## Author
+
+[Nicholas Martinez](https://github.com/NZenitram/mod4-final)

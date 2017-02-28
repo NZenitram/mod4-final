@@ -12,21 +12,21 @@ $(document).ready(function(){
   });
 
 
-$(".hot-read").on('click', '.press', function(){
+  $(".hot-read").on('click', '.press', function(){
 
-  var linkId = $(this).parents().children('.id').text();
-  var title = $('#edit-title').val()
-  var url = $('#edit-url').val()
-  var read = false;
+    var linkId = $(this).parents().children('.id').text();
+    var title = $('#edit-title').val()
+    var url = $('#edit-url').val()
+    var read = false;
 
-  $.ajax({ url: '/api/v1/links/' + linkId,
-          method: 'PATCH',
-           data: {id: linkId,
-           title: title,
-           url: url,
-           read: read}
-         });
-  })
+    $.ajax({ url: '/api/v1/links/' + linkId,
+            method: 'PATCH',
+             data: {id: linkId,
+             title: title,
+             url: url,
+             read: read}
+           });
+    })
 })
 
 
@@ -52,7 +52,7 @@ function createLink (event){
   $.post("/api/v1/links", link)
    .then( renderLink )
    .fail( displayFailure )
-   location.reload();
+    location.reload();
  }
 
 function getLinkData() {
