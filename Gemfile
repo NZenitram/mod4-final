@@ -13,12 +13,25 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'responders'
 gem 'awesome_print'
+
 gem 'sprockets-es6'
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'better_errors', group: :development
+gem 'react-rails'
+gem 'sprockets-es6'
+gem "validate_url"
+
 
 # gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development
+group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'better_errors'
+end
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
@@ -31,9 +44,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'simplecov', :require => false
-  gem 'spring'
   gem 'database_cleaner'
-  gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'poltergeist'
